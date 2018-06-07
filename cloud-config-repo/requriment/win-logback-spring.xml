@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="logLevel" value="INFO"/>
+	<property name="winLogPath" value="d:/log/boot/rm"/>
+	<property name="linuxLogPath" value="/var/log/boot/rm"/>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <logger name="cn.lz" level="DEBUG" />
+	
+    <springProfile name="production">
+        <appender name="STBRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <File>${winLogPath}/all.log</File>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>${winLogPath}/auth.%d{yyyy-MM-dd}.log</FileNamePattern>
+                <maxHistory>3000</maxHistory>
+            </rollingPolicy>
+            <encoder>
+                <Pattern>%d{dd-HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
+            </encoder>
+        </appender>
+    </springProfile>
+
+    <springProfile name="development">
+        <root level="${logLevel}">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile>
+
+    <springProfile name="production">
+        <root level="${logLevel}">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="STBRollingFileAppender" />
+        </root>
+    </springProfile>
+
+</configuration>

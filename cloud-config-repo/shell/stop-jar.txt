@@ -1,0 +1,9 @@
+﻿#!/bin/bash
+proc_name="${service-jar}"
+name_suffixx="\>"
+proc_id=`ps -ef|grep -i ${proc_name}${name_suffixx}|grep -v "grep"|awk '{print $2}'`
+echo ${proc_name} "pid:"=========================================================
+echo  ==========================${proc_id[@]}==============================
+echo "process is stopping! ========================================================="
+kill -9 ${proc_id[@]}
+echo "process is closed!"

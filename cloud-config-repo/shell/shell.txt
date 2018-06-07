@@ -1,0 +1,5 @@
+﻿#!/bin/bash
+jarName=`ls *jar`
+svrName=${jarName%-*}
+servicePath=`pwd`
+curl http://${config-host}:8804/shell/file?JAVA_HOME=${JAVA_HOME}\&config-host=${config-host}\&env-name=${env-name}\&service-jar=${jarName[@]}\&service-path=${servicePath[@]}\&service-log=${svrName[@]}\&type=$1

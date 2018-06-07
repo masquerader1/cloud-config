@@ -1,0 +1,7 @@
+﻿#!/bin/bash
+export JAVA_HOME=${JAVA_HOME}
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=utf-8 -Duser.language=en -Duser.country=US"
+export _JAVA_OPTIONS=
+export PATH=$JAVA_HOME/bin/:$JAVA_HOME/jre/bin:$PATH
+nohup java -jar ${service-path}/${service-jar} --spring.cloud.config.hostname=${config-host} --config.profile=${env-name} --system.name=unix > ${service-path}/${service-log}-log 2>&1 &
+tail -f ${service-path}/${service-log}-log

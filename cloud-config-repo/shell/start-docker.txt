@@ -1,0 +1,3 @@
+﻿#!/bin/bash
+export DOCKER_VOLUME="-v /var/log/boot:/var/log/boot -w /var/log/boot -v /home/wtb/temp:/home/wtb/temp -w /home/wtb/temp -v /home/wtb/log:/home/wtb/log -w /home/wtb/log"
+docker run $DOCKER_VOLUME --env _JAVA_OPTIONS="-javaagent:/home/agent/lz-svr-agent.jar -Xbootclasspath/p:/home/agent/lz-svc-loader.jar" -t -i -a STDOUT -a STDERR -p ${port}:${port} ${docker}

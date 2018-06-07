@@ -1,0 +1,9 @@
+﻿#!/bin/bash
+proc_name="${docker}"
+name_suffixx="\>"
+proc_id=`docker ps |grep -i ${proc_name} |awk '{print $1}'`
+echo ${proc_name} "pid:"=========================================================
+echo  ==========================${proc_id[@]}==============================
+echo "process is stopping! ========================================================="
+docker stop ${proc_id[@]}
+echo "process is closed!"

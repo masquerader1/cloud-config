@@ -1,0 +1,42 @@
+{
+	"instance": {
+		"instanceId": "APPNAME:APPIP:APPPORT",
+		"hostName": "APPIP",
+		"app": "APPNAME",
+		"ipAddr": "APPIP",
+		"status": "UP",
+		"overriddenstatus": "UNKNOWN",
+		"port": {
+			"$": APPPORT,
+			"@enabled": "true"
+		},
+		"securePort": {
+			"$": 443,
+			"@enabled": "false"
+		},
+		"countryId": 1,
+		"dataCenterInfo": {
+			"@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+			"name": "MyOwn"
+		},
+		"leaseInfo": {
+			"renewalIntervalInSecs": 10,
+			"durationInSecs": 30,
+			"registrationTimestamp": 0,
+			"lastRenewalTimestamp": 0,
+			"evictionTimestamp": 0,
+			"serviceUpTimestamp": 0
+		},
+		"metadata": {
+			"@class": "java.util.Collections$EmptyMap"
+		},
+		"homePageUrl": "http://APPIP:APPPORT/",
+		"statusPageUrl": "http://APPIP:APPPORT/info",
+		"healthCheckUrl": "http://APPIP:APPPORT/health",
+		"vipAddress": "APPNAME",
+		"secureVipAddress": "APPNAME",
+		"isCoordinatingDiscoveryServer": "false",
+		"lastUpdatedTimestamp": "1516607659803",
+		"lastDirtyTimestamp": "1516607660565"
+	}
+}

@@ -1,1 +1,1 @@
-# cloud-config
+config file
